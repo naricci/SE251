@@ -2,6 +2,9 @@ body {
     background-color: #f9fbe7;
 }
 
+nav {
+    margin-bottom: 30px;
+}
 table {
     background-color: white;
 }
