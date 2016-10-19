@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<title>Week One</title>
+	<style type="text/css">
+		div {margin-left:50px; margin-top:50px; width: 200px; float: left;}
+		
+		input[type="text"] {width: 30px;}
+	</style>
+</head>
+<body>
+	<div id="mainDiv">
+	
+		<input type="text" id="myNo1"> +
+		<input type="text" id="myNo2">
+		<input type="button" id="addValues" value="Add">
+		
+	</div>
+	<div id="result">
+	
+	</div>
+</body>
+</html>
+
+<script>
+	/*
+	const N = 50;
+	
+	for (i=1; i<=N; i++) {
+		if (i % 3 == 0 && i % 5 == 0)
+			console.log ("Fizz Buzz");
+		else if (i % 3 == 0)
+			console.log ("Fizz");
+		else if (i % 5 == 0)
+			console.log ("Buzz");
+		else
+			console.log (i);
+	}
+	
+	console.log ("0" == 0);
+	console.log ("0" === 0);
+	*/
+	var addButton = document.getElementById("addValues");
+	addButton.onclick = function(e) {
+		no1 = parseInt(document.getElementById("myNo1").value);
+		no2 = parseInt(document.getElementById("myNo2").value);
+		addNumbers = no1+no2;
+		if (isNaN (addNumbers)) {
+			alert ("No bueno");
+		}
+		else {
+			var result = document.getElementById("result");
+			result.innerHTML = no1 + no2;
+		}
+		
+	}
+	
+	var result = document.getElementById("result");
+	result.innerHTML = "TEST";
+	console.log(result);
+	
+	const N = 10;
+	var a = [];
+	for (i=0; i<N; i++) {
+		a[i] = [];
+		for (j=0; j<N; j++) {
+			a[i][j] = i + "," + j;
+		}
+	}
+	
+	var str = "<table cellpadding='5' cellspacing='5'>";
+	for (i=0; i<N; i++) {
+		str += "<tr>";
+		
+		for (j=0; j<N; j++) {
+			str += "<td>" + a[i][j] + "</td>";
+		}
+		str += "</tr>";
+	}
+	
+	str += "</table>";
+	result.innerHTML = str;
+	console.log (a);
+	
+</script>
