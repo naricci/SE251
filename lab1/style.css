@@ -1,3 +1,16 @@
 body {
     background-color: #f9fbe7;
 }
+
+table {
+    background-color: white;
+}
+
+td a {
+    color: black;
+}
+
+td a:hover {
+    color: #80cbc4;
+    text-decoration: underline;
+}
