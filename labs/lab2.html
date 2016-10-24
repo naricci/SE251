@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lab 2 - Random Grid</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 2 - Random Grid</title>
 
-    <!--jQuery API-->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</head>
-<body>
-    <div id="header">
-        <a href="../index.html">Home</a>
-    </div>
-    <br />
-    <div id="mainDiv">
-        <input id="textbox" type="text" title="textbox"/>
-        <input id="generate" type="button" value="Generate"/>
-    </div>
-    <div id="result">
+        <!--jQuery API-->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <a href="../index.html"><b>Home</b></a>
+        </div>
+        <br />
+        <div id="mainDiv">
+            <input id="textbox" type="text" title="textbox"/>
+            <input id="generate" type="button" value="Generate"/>
+        </div>
+        <div id="result"></div>
+    </body>
+    <script type="text/javascript">
 
-    </div>
-</body>
-<script type="text/javascript">
+        var submitButton = document.getElementById("generate");
+        submitButton.onclick = function(e) {
+            var count = 0;
+            var sum = 0;
+            var average = [];
+            var results = document.getElementById("result");
+            var textbox = document.getElementById("textbox").value;
 
-</script>
+            // Create HTML Table
+            var str = "<table cellpadding='5' cellspacing='5'>";
+
+            // Generate Random Number
+            var randomNumber = function(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+        }
+    </script>
 </html>
