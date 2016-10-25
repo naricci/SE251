@@ -30,16 +30,28 @@ var displayProblems = function (problems) {
     for (i = 0; i < problems.length; i++) {
         str += "<tr>";
         str += "<td>" + problems[i].question + "</td>";
-        str += "<td>" + problems[i].answer + "</td>";
-        str += "<td><input type='text' class='answer'/></td>";
+        // str += "<td>" + problems[i].answer + "</td>";           Column that can Display Answers
+        str += "<td><input type='text' id='attempt'/></td>";
         str += "</tr>";
     }
     str += "</table>";
-
     document.getElementById("mathGrid").innerHTML = str;
 }
 
 window.onload = function () {
     displayProblems(mathProblems);
+}
+
+document.getElementById("checkAnswers").onclick = function (e) {
+    var attempt = [];
+    var avg, sum, i;
+
+    for (i = 0; i < mathProblems.length; i++) {
+        attempt = document.getElementById("checkAnswers").value;
+        if (mathProblems[i].answer == attempt) {
+            return (attempt.value)
+        }
+    }
+    document.getElementById("result").innerHTML = "You answered " + "out of 20 questions correctly.  Grade:  ";
 }
 
