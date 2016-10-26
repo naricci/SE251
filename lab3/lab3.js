@@ -31,7 +31,7 @@ var displayProblems = function (problems) {
         str += "<tr>";
         str += "<td>" + problems[i].question + "</td>";
         // str += "<td>" + problems[i].answer + "</td>";           Column that can Display Answers
-        str += "<td><input type='text' id='attempt'/></td>";
+        str += "<td><input type='text' class='attempt_"' + i + "'/></td>";
         str += "</tr>";
     }
     str += "</table>";
@@ -40,28 +40,35 @@ var displayProblems = function (problems) {
 
 window.onload = function () {
     displayProblems(mathProblems);
-}
 
-var calculateFinalGride = function (answer, attempt) {
+
+/*var calculateFinalGrade = function (answer, attempt) {
     var attempt = [];
-    var avg, score, sum, i;
+    var score;
     for (i = 0; i < mathProblems.length; i++) {
-        if (attempt == answer){
+        if (attempt[i] == answer[i]){
             score += 5;
-        }
-        else {
-            score += 0;
+            numberCorrect++;
         }
     }
-}
-document.getElementById("checkAnswers").onclick = function () {
+}*/
+var check = document.getElementById("checkAnswers");
+    check.onclick = function(e) {
+    //calculateFinalGrade();
+        var attempt = [];
+        var score = 0;
+        var numberCorrect = 0;
 
-    for (i = 0; i < mathProblems.length; i++) {
-        attempt = document.getElementById("checkAnswers").value;
-        if (mathProblems[i].answer == attempt) {
-            return (attempt.value);
+        for (i = 0; i < mathProblems.length; i++) {
+            attempt = document.getElementById("attemp_" + i)
+            if (attempt[i] == mathProblems[i].answer) {
+                score += 5;
+                numberCorrect++;
+            }
         }
-    }
-    document.getElementById("result").innerHTML = "You answered " + "out of 20 questions correctly.  Grade:  " + score;
-}
+    var score;
+    var answerDisplay = "You answered " + numberCorrect + " out of 20 questions correctly.  Grade:  " + score;
+    document.getElementById("result").innerHTML = answerDisplay;
 
+    }
+}
