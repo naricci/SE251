@@ -31,7 +31,7 @@ var displayProblems = function (problems) {
         str += "<tr>";
         str += "<td>" + problems[i].question + "</td>";
         // str += "<td>" + problems[i].answer + "</td>";           Column that can Display Answers
-        str += "<td><input type='text' id='attempt'/></td>";
+        str += "<td><input type='text' class='attempt_"' + i + "'/></td>";
         str += "</tr>";
     }
     str += "</table>";
@@ -40,18 +40,35 @@ var displayProblems = function (problems) {
 
 window.onload = function () {
     displayProblems(mathProblems);
-}
 
-document.getElementById("checkAnswers").onclick = function (e) {
+
+/*var calculateFinalGrade = function (answer, attempt) {
     var attempt = [];
-    var avg, sum, i;
-
+    var score;
     for (i = 0; i < mathProblems.length; i++) {
-        attempt = document.getElementById("checkAnswers").value;
-        if (mathProblems[i].answer == attempt) {
-            return (attempt.value)
+        if (attempt[i] == answer[i]){
+            score += 5;
+            numberCorrect++;
         }
     }
-    document.getElementById("result").innerHTML = "You answered " + "out of 20 questions correctly.  Grade:  ";
-}
+}*/
+var check = document.getElementById("checkAnswers");
+    check.onclick = function(e) {
+    //calculateFinalGrade();
+        var attempt = [];
+        var score = 0;
+        var numberCorrect = 0;
 
+        for (i = 0; i < mathProblems.length; i++) {
+            attempt = document.getElementById("attemp_" + i)
+            if (attempt[i] == mathProblems[i].answer) {
+                score += 5;
+                numberCorrect++;
+            }
+        }
+    var score;
+    var answerDisplay = "You answered " + numberCorrect + " out of 20 questions correctly.  Grade:  " + score;
+    document.getElementById("result").innerHTML = answerDisplay;
+
+    }
+}
