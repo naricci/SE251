@@ -42,16 +42,26 @@ window.onload = function () {
     displayProblems(mathProblems);
 }
 
-document.getElementById("checkAnswers").onclick = function (e) {
+var calculateFinalGride = function (answer, attempt) {
     var attempt = [];
-    var avg, sum, i;
+    var avg, score, sum, i;
+    for (i = 0; i < mathProblems.length; i++) {
+        if (attempt == answer){
+            score += 5;
+        }
+        else {
+            score += 0;
+        }
+    }
+}
+document.getElementById("checkAnswers").onclick = function () {
 
     for (i = 0; i < mathProblems.length; i++) {
         attempt = document.getElementById("checkAnswers").value;
         if (mathProblems[i].answer == attempt) {
-            return (attempt.value)
+            return (attempt.value);
         }
     }
-    document.getElementById("result").innerHTML = "You answered " + "out of 20 questions correctly.  Grade:  ";
+    document.getElementById("result").innerHTML = "You answered " + "out of 20 questions correctly.  Grade:  " + score;
 }
 
