@@ -18,13 +18,25 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
 
-        <!--Header/Navigation Bar-->
+        <!-- Dropdown Structure for Navbar -->
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="index.html">Assignment 1</a></li>
+            <li class="divider"></li>
+            <li><a href="lab2/lab2.html">Assignment 2</a></li>
+            <li class="divider"></li>
+            <li><a href="lab3/lab3.html">Assignment 3</a></li>
+            <li class="divider"></li>
+        </ul>
+
+        <!-- Navigation Bar -->
         <nav>
             <div class="nav-wrapper teal lighten-3">
-                <a href="#" class="brand-logo center">SE 251 Advanced JavaScript Portfolio - Nicholas Ricci</a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <a href="index.html" class="brand-logo">Nicholas Ricci's Portfolio</a>
+                <ul class="right hide-on-med-and-down">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="badges.html">Badges</a></li>
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Assignments<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
             </div>
         </nav>
@@ -85,20 +97,46 @@
                 </tbody>
             </table>
 
-            <!--Comments Section-->
-            <div class="offset-s1 col s4 teal lighten-3">
-                <!--Comment Title-->
-                <p><b>Comments Section</b></p>
-                <ul>
-                    <li>    - Completed Assignment 2 on 10/24/2016</li>
-                    <li>    - Completed Assignment 1 on 10/19/2016</li>
-                    <li>    - Added badges to project folder on 10/18/2016</li>
-                    <li>    - Completed all Codecademy tutorials for Week 1 and Week 2 on 10/18/2016</li>
-                    <li>    - This page was created on 10/18/2016</li>
-                </ul>
-                <hr />
-            </div>
-
+            <!-- Comments Section -->
+            <table class="offset-s1 col s4 bordered responsive-table">
+                <thead class="teal lighten-3">
+                    <tr>
+                        <th data-fiesld="id">Comments</th>
+                        <th data-field="name">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>- Completed Assignment 3</td>
+                        <td>10/26/2016</td>
+                    </tr>
+                    <tr>
+                        <td>- Add some CSS styling to Portfolio</td>
+                        <td>10/26/2016</td>
+                    </tr>
+                    <tr>
+                        <td>- Completed Assignment 2</td>
+                        <td>10/24/2016</td>
+                    </tr>
+                    <tr>
+                        <td>- Completed Assignment 1</td>
+                        <td>10/192016</td>
+                    </tr>
+                    <tr>
+                        <td>- Added Codecademy Badges to project folder</td>
+                        <td>10/18/2016</td>
+                    </tr>
+                    <tr>
+                        <td>- Completed all Codecademy Tutorials for Weeks 1 & 2</td>
+                        <td>10/18/2016</td>
+                    </tr>
+                    <tr>
+                        <td>- This page was created using MaterializeCSS</td>
+                        <td>10/17/2016</td>
+                    </tr>
+                </tbody>
+            </table>
+            
             <!--Badges Completed Section-->
             <div class="offset-s1 col s4 teal lighten-3">
                 <!--Badges Earned Title-->
@@ -112,7 +150,7 @@
                     <li>    - 1 Learn JavaScript badge</li>
                 </ul>
                 <hr />
-                <img src="images/javascript/getStartedProgramming.PNG" width="100%"/>
+                <img src="images/javascript/getStartedProgramming.PNG" width="100%" class="responsive-img"/>
             </div>
         </div>
 
