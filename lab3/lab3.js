@@ -30,35 +30,30 @@ var displayProblems = function (problems) {
     for (i = 0; i < problems.length; i++) {
         str += "<tr>";
         str += "<td>" + problems[i].question + "</td>";
-        str += "<td><input type='text' class='attempt' id='attempt_" + i + "'/></td>";
+        str += "<td><input type='text' class='attempt' class='attempt'/></td>";
         str += "</tr>";
     }
     str += "</table>";
     document.getElementById("mathGrid").innerHTML = str;
-}
+};
 
 window.onload = function () {
     displayProblems(mathProblems);
 
     var check = document.getElementById("checkAnswers");
-    check.onclick = function () {
-        var attempt = [];
+    check.onclick = function () { 
         var score = 0;
         var numberCorrect = 0;
         var i;
+        attempt = $('.attempt').toArray();
         for (i = 0; i < mathProblems.length; i++) {
 
-            attempt = document.getElementById("attempt_" +i).value;
-
-            if (attempt == mathProblems[i].answer.value) {
-                return (attempt[i]);
+            if (parseInt(attempt[i].value) == mathProblems[i].answer) {
                 score += 5;
                 numberCorrect++;
             }
-            // return 0;
         }
         var answerDisplay = "You answered " + numberCorrect + " out of 20 questions correctly.  Grade:  " + score;
         document.getElementById("result").innerHTML = answerDisplay;
-    }
-    check.onclick;
-}
+    };
+};
