@@ -2,17 +2,30 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Week 5 Demo - Local Storage</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript">
             $(function () {
+                var cars = [];
+
                 $('#addCar').on('click', function () {
                     var color = $('#color').val();
                     var make = $('#make').val();
                     var model = $('#model').val();
                     var year = $('#year').val();
                     var doors = $('#doors').val();
-                    
+                    var car = {};
+                        car.color = color;
+                        car.make = make;
+                        car.model = model;
+                        car.year = year;
+                        car.doors = doors;
+                        cars[cars.length] = car;
+
+                    $('#cars').append('<p>Color: ' + car.color + ' Make: ' + car.make + ' Model: ' + car.model + ' Year: ' + car.year +  ' Doors: ' + car.doors + '</p>');
+
+                    localStorage.setItem('car', JSON.stringify(cars) );
+                    console.log( JSON.parse(localStorage.getItem('cars') ) );
                 });
             });
         </script>
