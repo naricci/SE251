@@ -1,6 +1,4 @@
-/**
- * Created by nick on 10/25/2016.
- */
+/** Created by nick on 10/25/2016. **/
 
 var mathProblems = [{question: "35 / 7", answer: 5},
             {question: "60 / 6", answer: 10},
@@ -41,7 +39,7 @@ window.onload = function () {
     displayProblems(mathProblems);
 
     var check = document.getElementById("checkAnswers");
-    check.onclick = function () { 
+    check.onclick = function () {
         var score = 0;
         var numberCorrect = 0;
         var i;
