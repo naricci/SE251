@@ -5,7 +5,16 @@
         <title>Title</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript">
-
+            $(function () {
+                $('#addCar').on('click', function () {
+                    var color = $('#color').val();
+                    var make = $('#make').val();
+                    var model = $('#model').val();
+                    var year = $('#year').val();
+                    var doors = $('#doors').val();
+                    
+                });
+            });
         </script>
     </head>
     <body>
@@ -17,8 +26,6 @@
             Doors:  <input type="text" id="doors" /><br />
             <input type="button" id="addCar" value="Add Car" />
         </div>
-        <div id="cars">
-
-        </div>
+        <div id="cars"></div>
     </body>
 </html>
