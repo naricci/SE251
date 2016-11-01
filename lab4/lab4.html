@@ -2,20 +2,58 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Lab 4 - Availability Calender</title>
-        <link type="text/css" rel="stylesheet" src="../style.css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function() {
+        <title>Lab 4 - Availability Calendar</title>
+        <link type="text/css" rel="stylesheet" href="../style.css"/>
 
-            });
+        <!-- jQuery API Link -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="js/jquery-ui-datepicker.min.js"></script>
+        <script type="text/javascript">
+
         </script>
     </head>
     <body>
+        <!-- Nav Links -->
+        <div id="header">
+            <a href="../index.html"><b>Home</b></a>
+            <a href="../lab2/lab2.html"><b>Lab 2</b></a>
+            <a href="../lab3/lab3.html"><b>Lab 3</b></a>
+        </div>
+        <br />
         <h1>Availability Calendar</h1><br />
-        <div>
-            Month: <input type="text" id="month"/>
-            Year: <input type="text" id="year"/>
+        <!-- Main Div -->
+        <div id="main">
+            <!-- Months Drop Down Menu -->
+            Month:
+            <select class="months">
+                <option value="jan" id="jan">January</option>
+                <option value="feb" id="feb">February</option>
+                <option value="mar" id="mar">March</option>
+                <option value="apr" id="apr">April</option>
+                <option value="may" id="may">May</option>
+                <option value="jun" id="jun">June</option>
+                <option value="jul" id="jul">July</option>
+                <option value="aug" id="aug">August</option>
+                <option value="sep" id="sep">September</option>
+                <option value="oct" id="oct">October</option>
+                <option value="nov" id="nov">November</option>
+                <option value="dec" id="dec">December</option>
+            </select>
+            <!-- Years Drop Down Menu -->
+            Year:
+            <select class="years">
+                <option value="2015" id="2015">2015</option>
+                <option value="2016" id="2016">2016</option>
+                <option value="2017" id="2017">2017</option>
+            </select>
+            <br /><br />
+            <!-- Results Div for Calendar -->
+            <div id="calendar"></div>
+            <!-- Availability Buttons -->
+            <div id="buttons">
+                <input type="button" id="available" value="All Month Available"/>
+                <input type="button" id="unavailable" value="All Month Unavailable"/>
+            </div>
         </div>
     </body>
 </html>
