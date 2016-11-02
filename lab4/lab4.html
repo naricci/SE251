@@ -4,28 +4,24 @@
         <meta charset="UTF-8">
         <title>Lab 4 - Availability Calendar</title>
         <link type="text/css" rel="stylesheet" href="../style.css"/>
-
         <!-- jQuery API Link -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="js/jquery-ui-datepicker.min.js"></script>
-        <script type="text/javascript">
-
-        </script>
+        <script src="calendar.js"></script>
     </head>
     <body>
         <!-- Nav Links -->
-        <div id="header">
+        <div class="header">
             <a href="../index.html"><b>Home</b></a>
             <a href="../lab2/lab2.html"><b>Lab 2</b></a>
             <a href="../lab3/lab3.html"><b>Lab 3</b></a>
         </div>
         <br />
-        <h1>Availability Calendar</h1><br />
         <!-- Main Div -->
         <div id="main">
+            <h1>Availability Calendar</h1><br />
             <!-- Months Drop Down Menu -->
-            Month:
-            <select class="months">
+            <label>Month:  </label>
+            <select id="month">
                 <option value="jan" id="jan">January</option>
                 <option value="feb" id="feb">February</option>
                 <option value="mar" id="mar">March</option>
@@ -40,19 +36,19 @@
                 <option value="dec" id="dec">December</option>
             </select>
             <!-- Years Drop Down Menu -->
-            Year:
-            <select class="years">
+            <label>Year:  </label>
+            <select id="year">
                 <option value="2015" id="2015">2015</option>
                 <option value="2016" id="2016">2016</option>
                 <option value="2017" id="2017">2017</option>
             </select>
             <br /><br />
             <!-- Results Div for Calendar -->
-            <div id="calendar"></div>
+            <div id="results"></div><br />
             <!-- Availability Buttons -->
             <div id="buttons">
-                <input type="button" id="available" value="All Month Available"/>
-                <input type="button" id="unavailable" value="All Month Unavailable"/>
+                <input type="button" id="yes" value="All Month Available" style="background-color: green;"/>
+                <input type="button" id="no" value="All Month Unavailable" style="background-color: red;"/>
             </div>
         </div>
     </body>
