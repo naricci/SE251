@@ -28,7 +28,7 @@ var displayProblems = function (problems) {
     for (i = 0; i < problems.length; i++) {
         str += "<tr>";
         str += "<td>" + problems[i].question + "</td>";
-        str += "<td><input type='text' class='attempt' class='attempt'/></td>";
+        str += "<td><input type='text' class='attempt'/></td>";
         str += "</tr>";
     }
     str += "</table>";
