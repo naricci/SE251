@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // alert("THIS WORKS");
     displayCalendar(daysOfWeek);
-});
+
 
 var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -18,3 +18,5 @@ function displayCalendar(months, years) {
 }
 
 //$('#results').display()
+	
+});

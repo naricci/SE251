@@ -17,7 +17,7 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-
+		
         <!-- Dropdown Structure for Navbar -->
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="index.html">Assignment 1</a></li>
@@ -27,6 +27,7 @@
             <li><a href="lab3/lab3.html">Assignment 3</a></li>
             <li class="divider"></li>
             <li><a href="lab4/lab4.html">Assignment 4</a></li>
+			<li class="divider"></li>
         </ul>
 
         <!-- Navigation Bar -->
@@ -34,7 +35,7 @@
             <div class="nav-wrapper teal lighten-3">
                 <a href="index.html" class="brand-logo">Nicholas Ricci's Portfolio</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="index.html">Home</a></li>
                     <li><a href="badges.html">Badges</a></li>
                     <!-- Dropdown Trigger -->
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Assignments<i class="material-icons right"></i></a></li>
@@ -42,102 +43,121 @@
             </div>
         </nav>
 
-        <!--Main Div-->
-        <div class="row">
+        <!-- Assignments Section -->
+		<div class="container">
+			<div class="section">
+				<h5>Assignments</h5>
+				<!-- Assignments Table -->
+				<table class="col s12 m6 bordered responsive-table">
+					<thead class="teal lighten-3">
+					<tr>
+						<th data-field="id">Assignment</th>
+						<th data-field="name">Completion Date</th>
+						<th data-field="grade">Grade</th>
+					</tr>
+					</thead>
 
-            <!--Assignments Table-->
-            <table class="offset-s1 col s5 bordered responsive-table">
-                <thead class="teal lighten-3">
-                <tr>
-                    <th data-fiesld="id">Assignment</th>
-                    <th data-field="name">Completion Date</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                <tr>
-                    <td><a href="index.html">Lab 1 - Course Page</a></td>
-                    <td>10/19/2016</td>
-                </tr>
-                <tr>
-                    <td><a href="lab2/lab2.html">Lab 2 - Randum Grid</a></td>
-                    <td>10/24/2016</td>
-                </tr>
-                <tr>
-                    <td><a href="lab3/lab3.html">Lab 3 - Math Problems</a></td>
-                    <td>10/31/2016</td>
-                </tr>
-                <tr>
-                    <td>Lab 4 - Availability Calendar</td>
-                    <td><a href="lab4/lab4.html"></a></td>
-                </tr>
-                <tr>
-                    <td>Lab 5 - Objects and Arrays</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Lab 6 - Local Storage and JSON</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Lab 7 - AJAX</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Lab 8 - Regular Expressions</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Lab 9 - Car Race</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Final Project</td>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <!-- Comments Section/Table -->
-            <table class="offset-s1 col s4 bordered responsive-table">
-                <thead class="teal lighten-3">
-                    <tr>
-                        <th data-fiesld="id">Comments</th>
-                        <th data-field="name">Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>- Completed Assignment 3</td>
-                        <td>10/31/2016</td>
-                    </tr>
-                    <tr>
-                        <td>- Add some CSS styling to Portfolio</td>
-                        <td>10/26/2016</td>
-                    </tr>
-                    <tr>
-                        <td>- Completed Assignment 2</td>
-                        <td>10/24/2016</td>
-                    </tr>
-                    <tr>
-                        <td>- Completed Assignment 1</td>
-                        <td>10/192016</td>
-                    </tr>
-                    <tr>
-                        <td>- Added Codecademy Badges to project folder</td>
-                        <td>10/18/2016</td>
-                    </tr>
-                    <tr>
-                        <td>- Completed all Codecademy Tutorials for Weeks 1 & 2</td>
-                        <td>10/18/2016</td>
-                    </tr>
-                    <tr>
-                        <td>- This page was created using MaterializeCSS</td>
-                        <td>10/17/2016</td>
-                    </tr>
-                </tbody>
-            </table>
-
+					<tbody>
+					<tr>
+						<td><a href="index.html">Lab 1 - Course Page</a></td>
+						<td>10/19/2016</td>
+						<td>100</td>
+					</tr>
+					<tr>
+						<td><a href="lab2/lab2.html">Lab 2 - Randum Grid</a></td>
+						<td>10/24/2016</td>
+						<td>100</td>
+					</tr>
+					<tr>
+						<td><a href="lab3/lab3.html">Lab 3 - Math Problems</a></td>
+						<td>10/31/2016</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><a href="lab4/lab4.html">Lab 4 - Availability Calendar</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Lab 5 - Objects and Arrays</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Lab 6 - Local Storage and JSON</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Lab 7 - AJAX</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Lab 8 - Regular Expressions</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Lab 9 - Car Race</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Final Project</td>
+						<td></td>
+						<td></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+        <!-- Comments Section/Table -->
+		<div class="container">
+			<div class="divider"></div>
+			<div class="section">
+				<table class="offset-s1 col s4 bordered responsive-table">
+					<thead class="teal lighten-3">
+						<tr>
+							<th data-fiesld="id">Comments</th>
+							<th data-field="name">Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>- Completed Assignment 3</td>
+							<td>10/31/2016</td>
+						</tr>
+						<tr>
+							<td>- Add some CSS styling to Portfolio</td>
+							<td>10/26/2016</td>
+						</tr>
+						<tr>
+							<td>- Completed Assignment 2</td>
+							<td>10/24/2016</td>
+						</tr>
+						<tr>
+							<td>- Completed Assignment 1</td>
+							<td>10/192016</td>
+						</tr>
+						<tr>
+							<td>- Added Codecademy Badges to project folder</td>
+							<td>10/18/2016</td>
+						</tr>
+						<tr>
+							<td>- Completed all Codecademy Tutorials for Weeks 1 & 2</td>
+							<td>10/18/2016</td>
+						</tr>
+						<tr>
+							<td>- This page was created using MaterializeCSS</td>
+							<td>10/17/2016</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
             <!--Badges Completed Section-->
             <div class="offset-s1 col s4 teal lighten-3">
                 <!--Badges Earned Title-->
@@ -153,7 +173,7 @@
                 <img src="images/javascript/getStartedProgramming.PNG" width="100%" class="responsive-img"/>
                 <p>13 total badges completed as of 10/19/2016</p>
             </div>
-        </div>
+        
 
         <!--Footer-->
         <footer class="page-footer teal lighten-3">
