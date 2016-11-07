@@ -6,3 +6,4 @@
 .dayHeader {height: 30px; width: 100px; border: 1px solid; float: left; margin-left:5px; font-weight: bold; background-color: white;}
 #results {clear: left; margin-left:50px; height: 250px;}
 input[type=button] {width: 200px; height: 40px;}
+.dayBox {height: 30px; width: 100px; border: 1px solid; float: left;}
