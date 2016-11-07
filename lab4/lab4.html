@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Lab 4 - Calendar Availability</title>
         <meta charset="UTF-8">
-        <title>Lab 4 - Availability Calendar</title>
         <link type="text/css" rel="stylesheet" href="../style.css"/>
-        <!-- jQuery API Link -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="calendar.css"/>
+        <script src="jquery-2.1.3.js"></script>
         <script src="calendar.js"></script>
     </head>
     <body>
         <!-- Nav Links -->
-        <div class="header">
+        <div id="header">
             <a href="../index.html"><b>Home</b></a>
             <a href="../lab2/lab2.html"><b>Lab 2</b></a>
             <a href="../lab3/lab3.html"><b>Lab 3</b></a>
         </div>
         <br />
-        <!-- Main Div -->
-        <div id="main">
-            <h1>Availability Calendar</h1><br />
-            <!-- Months Drop Down Menu -->
-            <label>Month:  </label>
+        <!-- Main DIV -->
+        <div class="main">
+            <h1>Availability Calendar</h1>
+            <label>Month:</label>
             <select id="month">
-                <option value="jan" id="jan">January</option>
-                <option value="feb" id="feb">February</option>
-                <option value="mar" id="mar">March</option>
-                <option value="apr" id="apr">April</option>
-                <option value="may" id="may">May</option>
-                <option value="jun" id="jun">June</option>
-                <option value="jul" id="jul">July</option>
-                <option value="aug" id="aug">August</option>
-                <option value="sep" id="sep">September</option>
-                <option value="oct" id="oct">October</option>
-                <option value="nov" id="nov">November</option>
-                <option value="dec" id="dec">December</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
             </select>
-            <!-- Years Drop Down Menu -->
-            <label>Year:  </label>
+            <label>Year:</label>
             <select id="year">
-                <option value="2015" id="2015">2015</option>
-                <option value="2016" id="2016">2016</option>
-                <option value="2017" id="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
             </select>
-            <br /><br />
-            <!-- Results Div for Calendar -->
-            <div id="results"></div><br />
-            <!-- Availability Buttons -->
-            <div id="buttons">
-                <input type="button" id="yes" value="All Month Available" style="background-color: green;"/>
-                <input type="button" id="no" value="All Month Unavailable" style="background-color: red;"/>
-            </div>
+        </div>
+        <!-- Weekday Header for Calendar -->
+        <div id="weekHeader">
+            <div class="dayHeader">Sunday</div>
+            <div class="dayHeader">Monday</div>
+            <div class="dayHeader">Tuesday</div>
+            <div class="dayHeader">Wednesday</div>
+            <div class="dayHeader">Thursday</div>
+            <div class="dayHeader">Friday</div>
+            <div class="dayHeader">Saturday</div>
+        </div>
+        <!-- Div to Display Calendar -->
+        <div id="results">
+
+        </div>
+        <!-- Selection Buttons -->
+        <div style="margin-top:20px; margin-left:400px; height:150px; border: 1px red; width: 500px;">
+            <input type="button" value="All Month Available" style="background-color:green;" id="yes">
+            <input type="button" value="All Month UnAvailable" style="background-color:red;" id="no">
         </div>
     </body>
 </html>
