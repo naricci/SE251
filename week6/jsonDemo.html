@@ -26,8 +26,8 @@
                     });
                 });
                 // Reformulation of what is on line 11, advantage being GET can get more than just HTML
-                $.get('demoData.html', function (data) {
-                    $('#results').html(data);
+                $.getJSON('json.php', function (data) {
+                    $('#results').html(data[1].categoryName);
                 });
             });
         </script>

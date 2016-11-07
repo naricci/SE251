@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DB Demo - Week 6</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                /*$.getJSON('categoryListJSON.php', function (data) {
+                    $.each(data, function (index, row) {
+                        $('#foo').append("<p>ID is " + row.categoryID + " " + row.categoryName + "</p>");
+                    });
+                });*/
+
+                $.ajax({
+                    url: 'categoryListJSON.php',
+                    success: function (data, status, xhr) {
+                        $.each(data, function (index, row) {
+                            $('#foo').append("<p>ID is " + row.categoryID + " " + row.categoryName + "</p>");
+                    },
+                    error: function (xhr, status, error) {
+                        alert ("There was a problem called " + status);
+                    }
+                });
+
+                // This won't work because it's just a concept
+                // category must be stringified or serialized in some fashion
+                $.ajax({
+                    url: 'addCategoryJSON.php',
+                    data: category,
+                    dataType: json,
+                    success: function () {
+
+                    },
+                    error: function () {
+
+                    },
+                    type: post
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="foo"></div>
+    </body>
+</html>
