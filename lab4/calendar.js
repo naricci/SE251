@@ -15,7 +15,14 @@ function showCalendar(mth, yr) {
     str += "</ul>";
     $("#results").html(str);
     // this is where you'll generate the grid, for now I will just show first day of week
-    
+    cal = "<table>";
+    cal += "<tr>"
+    for (i = 1; i < daysInMonth(d); i++) {
+        cal += "<td>" + d + "</td>";
+    }
+    cal += "<tr>";
+    cal += "</table>";
+    $("#results").html(cal);
 }
 
 function daysInMonth(anyDateInMonth) {
