@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week 1</title>
+    <!--
+    <script type="text/javascript" src="whatever.js"></script>
+    -->
+</head>
+<body>
+    <div id="mainDiv">
+        <input type="text" id="myNo1" />
+        +
+        <input type="text" id="myNo2" />
+        <input type="button" id="addValues" value="Add" />
+    </div>
+
+    <div id="result">
+
+    </div>
+</body>
+<script type="text/javascript">
+    var addButton = document.getElementById("addValues");
+    addButton.onclick = function(e) {
+        no1 = parseInt( document.getElementById("myNo1").value );
+        no2 = parseInt( document.getElementById("myNo2").value );
+        addNumbers = no1 + no2;
+        if ( isNaN(addNumbers) ) {
+            alert("No bueno");
+        } else {
+            var results = document.getElementById("result");
+            results.innerHTML = addNumbers;
+        }
+
+    }
+
+
+    var results = document.getElementById("result");
+    results.innerHTML = "TEST";
+    console.log(results);
+
+
+    const N = 10;
+    var a = [];
+    for (i = 0; i < N; i++) {
+        a[i] = [];
+        for (j = 0; j < N; j++) {
+            a[i][j] = i + ", " + j;
+        }
+    }
+
+    var str = "<table cellpadding='5' cellspacing='5'>";
+    for (i = 0; i < N; i++) {
+        str += "<tr>";
+        for (j = 0; j < N; j++) {
+            str += "<td>" + a[i][j] + "</td>";
+        }
+        str += "</tr>";
+    }
+    str += "</table>";
+    results.innerHTML = str;
+
+</script>
+</html>
+<!--
+Browser Pop-Up Message Boxes
+    1.)alert
+    2.)confirm
+    3.)prompt
+
+Built-in Commands/Functions
+    - .length                     = number of characters in variable
+    - .toFixed()
+    - .pop() {[native code]}
+    - .push()                     = Adds element to end of array
+    - .shift()                    = Takes first element of array off of array
+    - .unshift()                  = Adds element to beginning of array
+-->
