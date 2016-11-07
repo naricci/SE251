@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Index</title>
+    <style type="text/css">
+        td {text-align:left;vertical-align:top;}
+        input[type=text] { background-color:#efefef;}
+        .BlueDiv { background-color: Navy; color:White;width:200px;}
+        .RedDiv { background-color: Red; color:White; width:200px;}
+        .Highlight { background-color:Yellow;}
+        .LightHighlight { background-color: #ccc;}
+        .PhoneHighlight { background-color:#ccc;}
+        .PhoneNumber { margin-top:5px;width:80px;}
+        .PhoneType { margin-top:5px;}
+        .PhoneNumberDiv {text-align:left; vertical-align:middle; width:200px;float:left;margin-bottom:5px; height:30px; }
+        .PhoneTypeDiv { text-align:left; vertical-align:middle;width:100px;float:left; height:30px; }
+    </style>
+    <!-- ALWAYS make sure the jQuery API script comes before your JS script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            WireEvents();
+        });
+        
+        function WireEvents() {
+            $('#SubmitButton').click(function () {
+                var fNameVal = $('#FirstNameTextBox').val();
+                var lNameVal = $('#LastNameTextBox').val();
+                $('#DivOutput').text(fNameVal + ' ' + lNameVal);
+
+                // Using unbind() - Old School Way of Doing Things
+                $('#MyDiv').unbind('mouseup');
+            });
+
+            // Demo for .change()
+            $('.MyInput').change(function () {
+                alert( $(this).val() );
+                $(this).addClass('Highlight');
+            });
+
+            // Function Names don't typically begin with a capital letter!
+            function Toggle(div) {
+                $(div).toggleClass('Highlight');
+            }
+
+            // More Chaining
+            /*
+            $('#MyDiv').mouseenter(function () {
+                Toggle(this);
+                $(this).css('cursor', 'pointer');
+            })
+                    .mouseleave(function () {
+                        Toggle(this);
+                    })
+                    .mouseup(function (e) {         // e (placeholder) is a reference to the event handler
+                        $(this).text('X: ' + e.pageX + 'Y: ' + e.pageY);
+                    });
+            */
+
+            // Demo for .on() - replacement for .bind(), which is now deprecated
+            $('#MyDiv').on('mouseenter mouseleave mouseup', function (e) {
+                $(this).toggleClass('Highlight');
+                $(this).css('cursor', 'pointer');
+                if ( e.type == 'mouseup' )
+                {
+                    $(this).text('X: ' + e.pageX + 'Y: ' + e.pageY);
+                }
+            });
+
+            // Demo for .hover() - Bubble Up
+            $('#MyTable tr').hover(function () {
+                $(this).toggleClass('LightHighlight');
+            });
+
+            // Demo for .clone()
+            var phonesDiv = $('#PhonesDiv');    // Cache what is in Phone Div for efficiency
+            $('#AddPhone').click(function () {
+                var phoneSelDiv = $('div:eq(0)', phonesDiv).clone();
+                var phoneTbDiv = $('div:eq(1)', phonesDiv).clone();
+                $('select', phoneSelDiv).val('');
+                $('input', phoneTbDiv).val('');
+                phonesDiv.append('<div style="clear: both" />')
+                        .append(phoneSelDiv)
+                        .append(phoneTbDiv);
+            });
+
+            phonesDiv.on('keypress', 'input', function (e) {
+                if ( (e.keyCode < 48 || e.keyCode > 57) && e.keyCode != 45 )    // Numbers and dash values in ASCII table
+                {
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <div id="MyDiv">This is some text</div>
+    <form id="form1" runat="server">
+        <table id="MyTable" style="width:300px;" cellpadding="5">
+            <tr>
+                <td style="width:30%;">First Name</td>
+                <td style="width:70%;"><input id="FirstNameTextBox" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input class="MyInput" id="LastNameTextBox" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td><textarea class="MyInput" rows="5" cols="60" id="CommentsTextBox"></textarea></td>
+            </tr>   
+            <tr>
+                <td>Phone</td>
+                <td>
+                    <input type="button" id="AddPhone" value="Add Phone" />
+                    <div id="PhonesDiv" style="margin-top:10px;">
+                        <div class="PhoneTypeDiv">
+                            <select class="PhoneType">
+                                <option value="">Select One:</option>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Office">Office</option>
+                            </select>
+                        </div>
+                        <div class="PhoneNumberDiv">
+                            <input type="text" class="PhoneNumber" maxlength="12" />
+                        </div>
+                    </div>
+                </td>
+            </tr>        
+            <tr>
+                <td>
+                    State
+                </td>
+                <td>
+                    <select id="StatesSelect" class="MyInput">
+                        <option value="AZ">AZ</option>
+                        <option value="CA" selected="true">CA</option>
+                    </select>                
+                </td>
+            </tr>
+            <tr>
+                <td><input id="SubmitButton" type="button" value="Submit" /></td>
+                <td>
+                    <div id="DivOutput"></div>
+                </td>
+            </tr>
+        </table>  
+    </form>
+    <script type="text/javascript">
+        //Handle events the old-fashioned way
+        //        var button = document.getElementById('SubmitButton');
+        //        if (document.addEventListener) {
+        //            button.addEventListener('click', function () { alert('Clicked Button'); }, false);
+        //        }
+        //        else {
+        //            button.attachEvent('onclick', function () { alert('Clicked IE Button'); });
+        //        }
+    </script>
+</body>
+</html>

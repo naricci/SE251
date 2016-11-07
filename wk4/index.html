@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Index</title>
+    <style type="text/css">
+        .BlueDiv { background-color: Navy; color:White;width:200px;}
+        .RedDiv { background-color: Red; color:White; width:200px;}
+        .Highlight {background-color: Yellow; }
+        .style1
+        {
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var html = '';
+            $('div.BlueDiv, div.RedDiv').each(function (index) {
+                html += "<br />" + index + " " + $(this).text();
+            });
+            var output = $('#Output');
+            output.html(html);
+
+            $('div.BlueDiv, div.RedDiv').each(function (index) {
+                this.title = "some title";
+                $(this).attr('title', 'Some title 2');
+            });
+
+            // jQuery Object Selector + syntax to edit css and other attributes in javascript code
+            $('div.BlueDiv, div.RedDiv')
+                    .attr({
+                        title: 'Some title 3'
+                    })
+                    .css({
+                        'background-color': 'purple',
+                        'color': 'white',
+                        'font-size': '20pt'
+                    }).text('Changed Color');
+
+            var tcd = $('#TestDiv');
+
+            // append()/appendTo() & prepend()/prependTo() examples
+            tcd.append('<span style="background-color: green">Append Child 1</span>');
+            $('<span style="background-color: green">Append Child 2</span>').appendTo(tcd);
+            tcd.prepend('<span style="background-color: green">Append Child 1</span>');
+            $('<span style="background-color: green">Append Child 2</span>').prependTo(tcd);
+
+            // .wrap() example - will wrap another element/attribute around specified element(s) in object jquery object selector
+            $('span.Foo').wrap('<div class="RedDiv ParentWrapper" />');
+
+            // .each() example - will loop through each div with class 'ParentWrapper'
+            $('div.ParentWrapper').each(function () {
+                // alert($(this).html());
+            })
+
+            // .remove() example = Remove Elements from the Page
+            $('div.ParentWrapper').remove();
+
+            $('input[type="text"]').addClass('Highlight');
+            $('#LastNameTextBox').removeClass('Highlight');
+        });
+
+        // Focus & Blur Example and toggleClass() Example
+        function FocusBlur(tb) {
+            $(tb).toggleClass('Highlight');
+        }
+
+    </script>
+</head>
+<body>
+    <div id="Output"></div>
+    <div id="TestDiv" title="Div Title asdf asdfsdf asdf">
+        This is my div text
+    </div>
+    <div title="Contains Table">
+        <table id="DataTable">
+          <tr>
+             <td>Cell 1 Row 1</td>
+          </tr>
+          <tr>
+             <td>Cell 1 Row 2</td>
+          </tr>
+          <tr>
+             <td>Cell 1 Row 3</td>
+          </tr>
+          <tr>
+             <td>
+                <table style="width:100%">
+                    <tr>
+                        <td>Nested Table Cell and Row</td>
+                    </tr>
+                </table>
+             </td>
+          </tr>
+        </table>
+        <br />
+    </div>
+    <div class="BlueDiv">
+        <span>Blue div</span>
+    </div>
+    <br />
+    <span class="BlueDiv">This is my blue span</span>
+    <br />
+    <div class="RedDiv">
+        <span>Red div</span>
+    </div>
+    <span class="Foo">Span 1</span>
+    <span class="Foo">Span 2</span>
+    <span class="Foo">Span 3</span>
+    <p>
+        <img src="Images/pluralsight.png" />
+    </p>
+
+    <form id="form1" runat="server">
+        <table style="width:300px;">
+            <tr>
+                <td style="width:30%;">First Name</td>
+                <td style="width:70%;"><input id="FirstNameTextBox" value="John" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <!--Old School Inline JavaScript Example-->
+                <td><input id="LastNameTextBox" type="text" onfocus="FocusBlur(this)" onblur="FocusBlur(this)" /></td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td><textarea rows="5" cols="60" id="CommentsTextBox">TextArea</textarea></td>
+            </tr>           
+            <tr>
+                <td>
+                <select id="sel">
+                    <option value="AZ">AZ</option>
+                    <option value="CA" selected="true">CA</option>
+                </select></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><input id="SubmitButton" type="button" value="Submit" /></td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>  
+
+    </form>
+</body>
+</html>
+
