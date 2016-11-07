@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>JSON Demo - Week 6</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                // Load entire page with on 'click' event
+                $('#hardware').on('click', function () {
+                    $('#results').load('demoData.html');
+                });
+                // Load specific html element on a page with on 'click' event
+                $('#wetware').on('click', function () {
+                    $('#results').load('demoData.html #wetware');
+                });
+
+                // The following won't really work...
+                $('#software').on('click', function () {
+                    $('#results').load('customers.php', {PageSize:25}, function (response, status, xhr) {
+
+                        if (status == "error") {
+                            alert(xhr.statusText);
+                        }
+
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="buttons">
+            Hardware:  <input type="button" id="hardware" value="?"/><br />
+            Software:  <input type="button" id="software" value="?"/><br />
+            Wetware:  <input type="button" id="wetware" value="?"/><br />
+        </div>
+        <div id="results"></div>
+    </body>
+</html>
