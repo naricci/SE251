@@ -7,6 +7,7 @@
         <script type="text/javascript">
             $(function () {
                 // Load entire page with on 'click' event
+                // Load always uses a GET request
                 $('#hardware').on('click', function () {
                     $('#results').load('demoData.html');
                 });
@@ -14,7 +15,6 @@
                 $('#wetware').on('click', function () {
                     $('#results').load('demoData.html #wetware');
                 });
-
                 // The following won't really work...
                 $('#software').on('click', function () {
                     $('#results').load('customers.php', {PageSize:25}, function (response, status, xhr) {
@@ -24,6 +24,10 @@
                         }
 
                     });
+                });
+                // Reformulation of what is on line 11, advantage being GET can get more than just HTML
+                $.get('demoData.html', function (data) {
+                    $('#results').html(data);
                 });
             });
         </script>
