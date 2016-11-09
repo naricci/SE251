@@ -5,7 +5,7 @@
         <title>Lab 2 - Random Grid</title>
         <link type="text/css" rel="stylesheet" href="../style.css"/>
         <!--Import Google Icon Font-->
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
         <!--Let browser know website is optimized for mobile-->
@@ -13,9 +13,35 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
-        <script type="text/javascript" src="grid.js"></script>
+        <style type="text/css">
+            body {
+                display: flex;
+                min-height: 100vh;
+                flex-direction: column;
+            }
+            main {
+                flex: 1 0 auto;
+            }
+            #textbox {
+                background-color: white;
+                width: 100px;
+                height: 20px;
+                border: 1px solid black;
+            }
+            #math-grid {
+                border: 5px solid black;
+                height: auto;
+                width: auto;
+            }
+            td {
+                border: 5px solid white;
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
+
+
         <!-- Dropdown Structure for Navigation Bar -->
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="../index.html">Assignment 1</a></li>
@@ -27,6 +53,7 @@
             <li><a href="../lab4/lab4.html">Assignment 4</a></li>
             <li class="divider"></li>
         </ul>
+
         <!-- Navigation Bar -->
         <nav>
             <div class="nav-wrapper teal lighten-3">
@@ -44,10 +71,10 @@
         <main id="mainDiv">
             <input id="textbox" type="text" title="Textbox"/>
             <input id="generate" type="button" value="Generate"/>
-        </main>
 
-        <!-- Div for Displaying Results -->
-        <div id="result"></div>
+            <!-- Div for Displaying Results -->
+            <div id="result"></div>
+        </main>
 
         <!--Footer-->
         <footer class="page-footer teal lighten-3">
@@ -87,4 +114,65 @@
         </footer>
     </body>
 </html>
+<script type="text/javascript">
+    // Store Generate Button in variable
+    var submitButton = document.getElementById("generate");
 
+    submitButton.onclick = function(e) {
+        var index = 0;
+        var sum = 0;
+        var average = [];
+        var results = document.getElementById("result");
+        var textbox = document.getElementById("textbox").value;
+
+        // Create HTML Table
+        var str = "<table cellpadding='5px' cellspacing='5px' id='math-grid'>";
+
+        // Generate Random Number
+        var randomNumber = function(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        // Create Rows and Data for HTML Table
+        for (x = 0; x < textbox; x++)
+        {
+            str += "<tr>";
+            for (y = 0; y < textbox; y++)
+            {
+                var rando = randomNumber(1, 100);
+                average[index] = rando;
+                // Is number divisible by 3 with no remainder
+                if (rando % 3 == 0)
+                {
+                    str += "<td bgcolor='#ff0000'>" + rando + "</td>";
+                }
+                // Is number divisible by 2 with no remainder
+                else if (rando % 2 == 0)
+                {
+                    str += "<td bgcolor='#0000ff'>" + rando + "</td>";
+                }
+                else
+                {
+                    str += "<td bgcolor='white'>" + rando + "</td>";
+                }
+                // Increment random numbers
+                index++;
+            }
+            str += "</tr>";
+        }
+        for (i = 0; i < index; i++) {
+
+            sum += average[i];
+        }
+        var totalAvg = sum / i;
+
+        // Close HTML Table
+        str += "</table>";
+
+        // Display the Average
+        str += "<p> The average is " + totalAvg + "</p>";
+
+        // Display Results
+        results.innerHTML = str;
+    };
+</script>
