@@ -8,7 +8,7 @@
         <script type="text/javascript">
             $(function () {
                 var $myCanvas = $('#myCanvas');
-                $myCanvas.drawRect({       // Using {}'s inside because passing JSON Object into it
+                /*$myCanvas.drawRect({       // Using {}'s inside because passing JSON Object into it
                     fillStyle: 'steelblue',
                     strokeStyle: 'black',
                     strokeWidth: 4,
@@ -16,6 +16,14 @@
                     fromCenter: false,
                     width: 200,
                     height: 100
+                });*/
+                $myCanvas.drawArc({
+                    strokeStyle: 'black',
+                    strokeWidth: 4,
+                    x: 300, y: 100,
+                    radius: 50,
+                    // jCanvas uses degrees, not radians...
+                    start: 0, end: 200
                 });
             });
         </script>
