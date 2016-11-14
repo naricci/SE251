@@ -17,6 +17,7 @@
                     width: 200,
                     height: 100
                 });
+
                 $myCanvas.drawArc({
                     strokeStyle: 'black',
                     strokeWidth: 4,
@@ -24,7 +25,8 @@
                     radius: 50,
                     // jCanvas uses degrees, not radians...
                     start: 0, end: 200
-                });*/
+                });
+
                 // Smiley Face
                 $myCanvas.drawArc({
                     // Draw the Face
@@ -61,6 +63,7 @@
                     start: 0, end: 200,
                     ccw: true // Counter Clock-wise
                 });
+
                 $myCanvas.drawLine({
                     strokeStyle: 'steelblue',
                     strokeWidth: 10,
@@ -71,6 +74,7 @@
                     closed: true,    // Evenly completes a shape
                     rounded: true
                 });
+
                 $myCanvas.drawText({
                     text: "Canvas is fun",
                     fontFamily: "cursive",
@@ -80,6 +84,7 @@
                     strokeStyle: 'blue',
                     strokeWidth: 1
                 });
+
                 $myCanvas.drawImage({
                     source: 'cartman-crack.jpg',
                     x: 250, y: 100,
@@ -88,6 +93,29 @@
                     shadowColor: '#222',
                     shadowBlur: 3,
                     // rotate: 30
+                });*/
+
+                // ANIMATIONS
+                // Draw a Circle
+                $myCanvas.drawArc({
+                    name: "orangeCircle",
+                    layer:true,
+                    x: 50, y: 50,
+                    radius: 100,
+                    fillStyle: 'orange',
+                    opacity: 0.5
+                });
+
+                // Animate the Layer
+                $myCanvas.animateLayer('orangeCircle', {
+                    x: 150, y: 150,
+                    radius: 50
+                }, 1000, function (layer) {
+                    $(this).animateLayer(layer, {
+                        fillStyle: 'darkred',
+                        x: 250, y: 100,
+                        opacity: 1
+                    }, 'slow', 'ease-in-out');
                 });
             });
         </script>
@@ -96,5 +124,6 @@
         <canvas id="myCanvas" width="600" height="300">
             <p>This is fallback content for screen reader devices and browsers that should have been retired decades ago.</p>
         </canvas>
+        
     </body>
 </html>
