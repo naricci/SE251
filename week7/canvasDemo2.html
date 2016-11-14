@@ -8,7 +8,8 @@
         <script type="text/javascript">
             $(function () {
                 var $myCanvas = $('#myCanvas');
-                /*$myCanvas.drawRect({       // Using {}'s inside because passing JSON Object into it
+                /*
+                $myCanvas.drawRect({       // Using {}'s inside because passing JSON Object into it
                     fillStyle: 'steelblue',
                     strokeStyle: 'black',
                     strokeWidth: 4,
@@ -93,8 +94,8 @@
                     shadowColor: '#222',
                     shadowBlur: 3,
                     // rotate: 30
-                });*/
-
+                });
+                */
                 // ANIMATIONS
                 // Draw a Circle
                 $myCanvas.drawArc({
@@ -117,6 +118,42 @@
                         opacity: 1
                     }, 'slow', 'ease-in-out');
                 });
+
+                $myCanvas.drawRect({
+                    layer: true,
+                    draggable: true,
+                    bringToFront: true,
+                    name: 'blueSquare',
+                    fillStyle: 'steelblue',
+                    x: 250, y: 150,
+                    width: 100, height: 100,
+                    rotate: 80,
+                    shadowX: -1, shadowY: 8,
+                    shadowBlur: 2,
+                    shadowColor: 'rgba(0,0,0,0.8)',
+                    dragstop: function (layer) {
+                        var layername = layer.name;
+                        $('#output').html("The <strong>" + layername + "</strong> was dragged");
+                        // document.getElementById('output').innerHTML = "The <strong>" + layername + "</strong> was dragged";
+                    }
+                }).drawRect({
+                    layer: true,
+                    draggable: true,
+                    bringToFront: true,
+                    name: 'redSquare',
+                    fillStyle: 'red',
+                    x: 190, y: 100,
+                    width: 100, height: 100,
+                    rotate: 130,
+                    shadowX: -2, shadowY: 5,
+                    shadowBlur: 3,
+                    shadowColor: 'rgba(0,0,0,0.5)',
+                    dragstop: function (layer) {
+                        var layername = layer.name;
+                        $('#output').html("The <strong>" + layername + "</strong> was dragged");
+                    }
+                });
+
             });
         </script>
     </head>
@@ -124,6 +161,6 @@
         <canvas id="myCanvas" width="600" height="300">
             <p>This is fallback content for screen reader devices and browsers that should have been retired decades ago.</p>
         </canvas>
-        
+        <div id="output"></div>
     </body>
 </html>
