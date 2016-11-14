@@ -16,7 +16,7 @@
                     fromCenter: false,
                     width: 200,
                     height: 100
-                });*/
+                });
                 $myCanvas.drawArc({
                     strokeStyle: 'black',
                     strokeWidth: 4,
@@ -24,6 +24,70 @@
                     radius: 50,
                     // jCanvas uses degrees, not radians...
                     start: 0, end: 200
+                });*/
+                // Smiley Face
+                $myCanvas.drawArc({
+                    // Draw the Face
+                    fillStyle: "yellow",
+                    strokeStyle: "#333",
+                    strokeWidth: 4,
+                    x: 300, y: 100,
+                    radius: 80
+                }).drawArc({
+                    // Draw the Left Eye
+                    fillStyle: '#333',
+                    strokeStyle: '#333',
+                    x: 250, y: 70,
+                    radius: 5
+                }).drawArc({
+                    // Draw the Right Eye
+                    fillStyle: '#333',
+                    strokeStyle: '#333',
+                    x: 350, y: 70,
+                    radius: 5
+                }).drawArc({
+                    // Draw the Mouth
+                    strokeStyle: '#333',
+                    strokeWidth: 4,
+                    x: 300, y: 135,
+                    radius: 30,
+                    start: 90, end: 280
+                }).drawArc({
+                    // Draw the Nose
+                    stokeStyle: '#333',
+                    strokeWidth: 4,
+                    x: 300, y: 100,
+                    radius: 30,
+                    start: 0, end: 200,
+                    ccw: true // Counter Clock-wise
+                });
+                $myCanvas.drawLine({
+                    strokeStyle: 'steelblue',
+                    strokeWidth: 10,
+                    x1: 100, y1: 28,
+                    x2: 50, y2: 200,
+                    x3: 300, y3: 200,
+                    x4: 200, y4: 109,
+                    closed: true,    // Evenly completes a shape
+                    rounded: true
+                });
+                $myCanvas.drawText({
+                    text: "Canvas is fun",
+                    fontFamily: "cursive",
+                    fontSize: 40,
+                    x: 290, y: 150,
+                    fillStyle: 'lightblue',
+                    strokeStyle: 'blue',
+                    strokeWidth: 1
+                });
+                $myCanvas.drawImage({
+                    source: 'cartman-crack.jpg',
+                    x: 250, y: 100,
+                    fromCenter: false,
+                    // scale: 0.5,
+                    shadowColor: '#222',
+                    shadowBlur: 3,
+                    // rotate: 30
                 });
             });
         </script>
