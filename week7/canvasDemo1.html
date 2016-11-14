@@ -5,10 +5,48 @@
         <title>Week 7 - HTML5 Canvas Demo 1</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript">
+            $(function () {
+                // NOTE:  HTML5 Canvas does not play nice with jQuery
+                // var c = $('#myCanvas');  // Cannot use jQuery Selectors with HTML5 Canvas
+                var c = document.getElementById('myCanvas');
+                var ctx = c.getContext("2d");   // Draw connection to Canvas and its contents
+                /*
+                // LINE EXAMPLE
+                ctx.moveTo(0, 0);   // Position Pointer in top left corner of canvas
+                ctx.lineTo(200, 100);   // Tell what location on canvas to draw line to
+                ctx.stroke();   // Tell it to stroke the line
+                // CIRCLE EXAMPLE
+                ctx.beginPath();
+                ctx.arc(95, 50, 40, 0, 2*Math.PI);    // .arc(x-coordinate, y-coordinate, radius, beginning radian, ending radian)
+                ctx.stroke();
 
+                // FILL TEXT EXAMPLE
+                ctx.font = "30px Arial";
+                // ctx.fillText("SE 251", 10, 50);     // .fillText("what text to display", x, y, width [optional])...Fills text
+                ctx.strokeText("SE 251", 10, 50, 50);   // Outlines the text, hence "stroke"...Not filled in
+
+                // LINEAR GRADIENT
+                //Create Gradient
+                var grd = ctx.createLinearGradient(0, 0, 200, 0);   // .createLinearGradient(starting point, ending point)
+                grd.addColorStop(0, "red");     // Starting Color
+                grd.addColorStop(1, "black");   // Ending Color
+                // Fill With The Gradient
+                ctx.fillStyle = grd;    // Make association
+                ctx.fillRect(10, 10, 150, 80);      // .fillRect(x, y, end-x, end-y)
+                */
+                // RADIAL GRADIENT
+                // Create Gradient
+                var grd = ctx.createRadialGradient(75,50,5, 30,90,100);       // .createRadialGradient(x,y,radius, x,y,radius)
+                grd.addColorStop(0, "red");
+                grd.addColorStop(1, "black");
+                // Fill Gradient
+                ctx.fillStyle = grd;
+                ctx.fillRect(10, 10, 150, 80);
+
+            });
         </script>
     </head>
     <body>
-        <canvas id="myCanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+        <canvas id="myCanvas" width="200" height="100" style="border: 1px solid #000;"></canvas>
     </body>
 </html>
