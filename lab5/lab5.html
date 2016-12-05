@@ -6,6 +6,16 @@
         <link type="text/css" rel="stylesheet" href="../style.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="lab5.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                // Create Add Actor Button
+                $('#aud-buttons').append('<input type="button" name="add" value="Add"/>');
+                $('#aud-buttons').append('<input type="button" name="update" value="Update"/>');
+                $('#aud-buttons').append('<input type="button" name="Delete" value="Delete"/>');
+
+            });
+        </script>
     </head>
     <body>
         <div id="main">
@@ -52,7 +62,7 @@
                     <input type="checkbox" name="genre" value="drama"> Drama<br />
                     <input type="checkbox" name="genre" value="sci-fi"> Science Fiction<br />
             </form>
-            <div class="edit-button"></div>
+            <div id="aud-buttons"></div>
         </div>
     </body>
 </html>
