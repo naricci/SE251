@@ -40,5 +40,20 @@ $(document).ready(function () {
         alert(JSON.stringify(actor));
     });
 
+        function getActorInfo() {
+
+            $('.info').click(function () {
+                var index = $(this).data('actor-id');
+                $('input[type=checkbox]').prop('checked', false);
+                // remove delete button
+                // remove update button
+
+                updateButton = '<input type="button" id="updateButton" value="Update"/>';
+                deleteButton = '<input type="button" id="deleteButton" value="Delete"/>';
+
+
+            });
+        }
+
 
 });
