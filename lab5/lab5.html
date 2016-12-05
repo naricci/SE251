@@ -41,16 +41,19 @@
                     </select><br /><br />
                 <!--Actor Gender -->
                 <label>Gender:</label><br />
-                    <input type="radio" name="gender" value="male"> Male<br />
-                    <input type="radio" name="gender" value="female"> Female<br /><br />
+                    <input type="radio" name="gender" id="male" value="male"> Male<br />
+                    <input type="radio" name="gender" id="female" value="female"> Female<br /><br />
                 <!-- Actor Movie Genres -->
                 <label>Genres:</label><br />
-                    <input type="checkbox" name="genre" value="action"> Action<br />
-                    <input type="checkbox" name="genre" value="comedy"> Comedy<br />
-                    <input type="checkbox" name="genre" value="drama"> Drama<br />
-                    <input type="checkbox" name="genre" value="sci-fi"> Science Fiction<br />
+                    <input type="checkbox" name="genre" id="action" value="action"> Action<br />
+                    <input type="checkbox" name="genre" id="comedy" value="comedy"> Comedy<br />
+                    <input type="checkbox" name="genre" id="drama" value="drama"> Drama<br />
+                    <input type="checkbox" name="genre" id="sci-fi" value="sci-fi"> Science Fiction<br />
             </form><br />
-            <div id="aud-buttons"></div>
+            <div id="buttonDiv">
+                <input type="button" id="addButton" value="Add"/>
+            </div><br />
+            <div id="actors-list"></div>
         </div>
     </body>
 </html>
