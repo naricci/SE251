@@ -1,5 +1,6 @@
 var actors = [];    // Array to store submitted actor data in
 var a = 0;
+var results;
 
 // Add Actor Function
 function addActorInfo() {
@@ -48,13 +49,14 @@ function getActorInfo() {
         $('#year').val(splitDate[2]);
         $('input[type=radio][value=' + actors[index].gender + ']').prop('checked', true);
 
+        var i = 0;
         for (i = 0; i < actors[index].genre.length; i++)
         {
             $('input[type=checkbox][value=' + actors[index].genre[i] + ']').prop('checked', true);
         }
-        // Create Dynamic Update/Delete Buttons
-        updateButton = "<input type='button' id='updateButton' value='Update Info'/>";
-        deleteButton = "<input type='button' id='deleteButton' value='Delete Actor'/>";
+        // Create Dynamic Update/Delete Buttons/Variables
+        var updateButton = "<input type='button' id='updateButton' value='Update Info'/>";
+        var deleteButton = "<input type='button' id='deleteButton' value='Delete Actor'/>";
 
         $('#addButton').append(updateButton, deleteButton);
 
@@ -99,7 +101,39 @@ function getActorInfo() {
     });
 }
 
-// Clear Actor Data
+// Form Validation
+function formValidation() {
+
+    var results = true;
+
+    if ( $('#first').val() == "" )
+    {
+        alert("Please enter your first name.  Field cannot be left blank.");
+        results = false;
+    }
+
+    if ( $('#last').val() == "" )
+    {
+        alert("Please enter your last name.  Field cannot be left blank.");
+        results = false;
+    }
+
+    if ( !$("input[name='gender']").is(":checked") )
+    {
+        alert("Please choose a gender.  Field cannot be left blank.");
+        results = false;
+    }
+
+    if ( !$("input[name='genre']").is(":checked") )
+    {
+        alert("Please choose at least 1 genre.  Field cannot be left blank.");
+        results = false;
+    }
+
+    return results;
+}
+
+// Clear Actor Info
 function clearFields() {
 
     $('#first').val("");
