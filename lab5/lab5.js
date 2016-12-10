@@ -28,6 +28,7 @@ $(document).ready(function () {
         $('input[type=checkbox]:checked').each(function () {
             genre.push($(this).val());
         });
+
         var actor = {};
             actor.first = first;
             actor.last = last;
