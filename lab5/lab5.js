@@ -24,21 +24,14 @@ function addActorInfo() {
         actors.push(actor);
 
     alert(JSON.stringify(actor));
-<<<<<<< HEAD
-    $('#actorsList').append('<li class=" + a + "><a href="#" class="info" data-actor-id=" + a + ">' + actor.first + " " + actor.last + '</a></li>');
-=======
     $('#actorsList').append('<li class="' + a + '"><a href="#" class="info" data-actor-id="' + a + '">' + actor.first + " " + actor.last + '</a></li>');
->>>>>>> week4
     a++;
 
     // Remove Update/Delete Buttons
     $('#updateButton').remove();
     $('#deleteButton').remove();
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> week4
 // Get Actor Function
 function getActorInfo() {
 
@@ -50,38 +43,24 @@ function getActorInfo() {
 
         $('#first').val(actors[index].first);
         $('#last').val(actors[index].last);
-<<<<<<< HEAD
-        splitDate = [];
-=======
         var splitDate = [];
->>>>>>> week4
         splitDate = actors[index].dob.split('/');   // Break dob into pieces at each slash
         $('#day').val(splitDate[0]);
         $('#month').val(splitDate[1]);
         $('#year').val(splitDate[2]);
         $('input[type=radio][value=' + actors[index].gender + ']').prop('checked', true);
 
-<<<<<<< HEAD
-        var i = 0;
-=======
         var i;
->>>>>>> week4
         for (i = 0; i < actors[index].genre.length; i++)
         {
             $('input[type=checkbox][value=' + actors[index].genre[i] + ']').prop('checked', true);
         }
         // Create Dynamic Update/Delete Buttons/Variables
-<<<<<<< HEAD
-        var updateButton = "<input type='button' id='updateButton' value='Update Info'/>";
-        var deleteButton = "<input type='button' id='deleteButton' value='Delete Actor'/>";
-
-        $('#addButton').append(updateButton, deleteButton);
-=======
         var updateButton = "<input type='button' name='updateButton' id='updateButton' value='Update Info' />";
         var deleteButton = "<input type='button' name='deleteButton' id='deleteButton' value='Delete Actor' />";
 
+        // Append Update/Delete Buttons to Button Div
         $('#buttonDiv').append(updateButton, deleteButton);
->>>>>>> week4
 
         // Delete Actor Info
         $('#deleteButton').on('click', function () {
@@ -115,11 +94,7 @@ function getActorInfo() {
                 actor.genre = genre;
                 actors.splice(index, 1, actor);
 
-<<<<<<< HEAD
-            $('#actorsList').append('<li class=" + a + "><a href="#" class="info" data-actor-id=" + a + ">' + actor.first + " " + actor.last + '</a></li>');
-=======
-            $('#actorsList').append('<li class="' + index + '"><a href="#" class="info" data-actor-id="'+ index + '">' + actor.first + " " + actor.last + '</a></li>');
->>>>>>> week4
+            $('#actorsList').append('<li class="' + index + '"><a href="#" class="info" data-actor-id="' + index + '">' + actor.first + " " + actor.last + '</a></li>');
             $('#updateButton').remove();
             $('#deleteButton').remove();
             getActorInfo();
