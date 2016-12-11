@@ -36,7 +36,39 @@ function addActorInfo() {
 // Get Actor Function
 function getActorInfo() {
 
-    $('.info').click(function () {
+    var getActors = JSON.parse(localStorage.getItem('actors'));
+
+    if (getActors == null)
+    {
+        alert('No Actors.');
+    }
+    else
+    {
+        $("#actorsForm").hide();
+        var deleteLocalStorage = "<input type='button' id='deleteLocalStorage' value='Delete Actors' /> ";
+        $('#results').append(deleteLocalStorage);
+
+        $('#deleteLocalStorage').on('click', function () {
+
+            localStorage.clear();
+            location.reload();
+        });
+
+        var getActor = {};
+        var i;
+
+        for (i = 0; i < getActors.length; i++)
+        {
+            getActor.first = (getActors[i].first);
+            getActor.last = (getActors[i].last);
+            getActor.dob = (getActors[i].dob);
+            getActor.gender = (getActors[i].gender);
+            getActor.genre = (getActors[i].genre);
+            $('#actorsList').append('<li><a href="#" class="info" data-q_id="' + i + '">' + getActor.first + " " + getActor.last + '</a></li>');
+        }
+    }
+/*************************************************************************************************/
+        $('.info').click(function () {
         var index = $(this).data('actor-id');   // index used to keep track of actors as they are added and incremented
         $('input[type=checkbox]').prop('checked', false);
         $('#updateButton').remove();
