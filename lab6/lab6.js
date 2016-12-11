@@ -45,6 +45,7 @@ function getActorInfo() {
     else
     {
         $("#actorsForm").hide();
+        // Button to delete the Actor’s Information using localStorage.clear();
         var deleteLocalStorage = "<input type='button' id='deleteLocalStorage' value='Delete Actors' /> ";
         $('#results').append(deleteLocalStorage);
 
@@ -191,13 +192,14 @@ $(document).ready(function () {
         $('#year').append('<option value="' + y + '">' + y + '</option>');
     }
 
+    getActorInfo();     // Moved from if statement below
+
     // Add Actor Button On Click Func
     $('#addButton').on('click', function () {
 
         if ( formValidation() )
         {
             addActorInfo();
-            getActorInfo();
         }
     });
 });
