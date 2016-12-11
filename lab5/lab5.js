@@ -56,10 +56,10 @@ function getActorInfo() {
             $('input[type=checkbox][value=' + actors[index].genre[i] + ']').prop('checked', true);
         }
         // Create Dynamic Update/Delete Buttons/Variables
-        var updateButton = "<input type='button' id='updateButton' value='Update Info'/>";
-        var deleteButton = "<input type='button' id='deleteButton' value='Delete Actor'/>";
+        var updateButton = "<input type='button' name='updateButton' id='updateButton' value='Update Info' />";
+        var deleteButton = "<input type='button' name='deleteButton' id='deleteButton' value='Delete Actor' />";
 
-        $('#addButton').append(updateButton, deleteButton);
+        $('#buttonDiv').append(updateButton, deleteButton);
 
         // Delete Actor Info
         $('#deleteButton').on('click', function () {
@@ -93,7 +93,7 @@ function getActorInfo() {
                 actor.genre = genre;
                 actors.splice(index, 1, actor);
 
-            $('#actorsList').append('<li class=" + index + "><a href="#" class="info" data-actor-id=" + index + ">' + actor.first + " " + actor.last + '</a></li>');
+            $('#actorsList').append('<li class="' + index + '"><a href="#" class="info" data-actor-id="'+ index + '">' + actor.first + " " + actor.last + '</a></li>');
             $('#updateButton').remove();
             $('#deleteButton').remove();
             getActorInfo();
