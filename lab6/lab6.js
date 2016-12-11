@@ -23,6 +23,7 @@ function addActorInfo() {
         actor.genre = genre;
         actors.push(actor);
 
+    localStorage.setItem('actors', JSON.stringify(actors));
     alert(JSON.stringify(actor));
     $('#actorsList').append('<li class="' + a + '"><a href="#" class="info" data-actor-id="' + a + '">' + actor.first + " " + actor.last + '</a></li>');
     a++;
