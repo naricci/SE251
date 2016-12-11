@@ -24,13 +24,14 @@ function addActorInfo() {
         actors.push(actor);
 
     alert(JSON.stringify(actor));
-    $('#actorsList').append('<li class=" + a + "><a href="#" class="info" data-actor-id=" + a + ">' + actor.first + " " + actor.last + '</a></li>');
+    $('#actorsList').append('<li class="' + a + '"><a href="#" class="info" data-actor-id="' + a + '">' + actor.first + " " + actor.last + '</a></li>');
     a++;
 
     // Remove Update/Delete Buttons
     $('#updateButton').remove();
     $('#deleteButton').remove();
 }
+
 // Get Actor Function
 function getActorInfo() {
 
@@ -42,14 +43,14 @@ function getActorInfo() {
 
         $('#first').val(actors[index].first);
         $('#last').val(actors[index].last);
-        splitDate = [];
+        var splitDate = [];
         splitDate = actors[index].dob.split('/');   // Break dob into pieces at each slash
         $('#day').val(splitDate[0]);
         $('#month').val(splitDate[1]);
         $('#year').val(splitDate[2]);
         $('input[type=radio][value=' + actors[index].gender + ']').prop('checked', true);
 
-        var i = 0;
+        var i;
         for (i = 0; i < actors[index].genre.length; i++)
         {
             $('input[type=checkbox][value=' + actors[index].genre[i] + ']').prop('checked', true);
@@ -92,7 +93,7 @@ function getActorInfo() {
                 actor.genre = genre;
                 actors.splice(index, 1, actor);
 
-            $('#actorsList').append('<li class=" + a + "><a href="#" class="info" data-actor-id=" + a + ">' + actor.first + " " + actor.last + '</a></li>');
+            $('#actorsList').append('<li class=" + index + "><a href="#" class="info" data-actor-id=" + index + ">' + actor.first + " " + actor.last + '</a></li>');
             $('#updateButton').remove();
             $('#deleteButton').remove();
             getActorInfo();
@@ -152,7 +153,7 @@ $(document).ready(function () {
 
     // Create List of Years for Year Drop-Down
     var y;
-    for (y = 1950; y < 2016; y++) {
+    for (y = 1970; y < 2017; y++) {
         $('#year').append('<option value="' + y + '">' + y + '</option>');
     }
 
