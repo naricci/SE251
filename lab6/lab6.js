@@ -25,7 +25,7 @@ function addActorInfo() {
 
     localStorage.setItem('actors', JSON.stringify(actors));
     alert(JSON.stringify(actor));
-    $('#actorsList').append('<li class="' + a + '"><a href="#" class="info" data-actor-id="' + a + '">' + actor.first + " " + actor.last + '</a></li>');
+    $('#actorsList').append('<li class="' + a + '"><a href="#" class="info" data-act_id="' + a + '">' + actor.first + " " + actor.last + '</a></li>');
     a++;
 
     // Remove Update/Delete Buttons
@@ -64,30 +64,33 @@ function getActorInfo() {
             getActor.dob = (getActors[i].dob);
             getActor.gender = (getActors[i].gender);
             getActor.genre = (getActors[i].genre);
-            $('#actorsList').append('<li><a href="#" class="info" data-q_id="' + i + '">' + getActor.first + " " + getActor.last + '</a></li>');
+            $('#actorsList').append('<li><a href="#" class="info" data-act_id="' + i + '">' + getActor.first + " " + getActor.last + '</a></li>');
         }
     }
-/*************************************************************************************************/
-        $('.info').click(function () {
-        var index = $(this).data('actor-id');   // index used to keep track of actors as they are added and incremented
+
+    // Select Actor from List Function
+    $('.info').click(function () {
+
+        var index = $(this).data('act_id');
         $('input[type=checkbox]').prop('checked', false);
         $('#updateButton').remove();
         $('#deleteButton').remove();
 
-        $('#first').val(actors[index].first);
-        $('#last').val(actors[index].last);
+        $('#first').val(getActor[index].first);
+        $('#last').val(getActors[index].last);
         var splitDate = [];
-        splitDate = actors[index].dob.split('/');   // Break dob into pieces at each slash
+        splitDate = getActors[index].dob.split('/');   // Break dob into pieces at each slash
         $('#day').val(splitDate[0]);
         $('#month').val(splitDate[1]);
         $('#year').val(splitDate[2]);
-        $('input[type=radio][value=' + actors[index].gender + ']').prop('checked', true);
+        $('input[type=radio][value=' + getActor[index].gender + ']').prop('checked', true);
 
         var i;
-        for (i = 0; i < actors[index].genre.length; i++)
+        for (i = 0; i < getActors[index].genre.length; i++)
         {
-            $('input[type=checkbox][value=' + actors[index].genre[i] + ']').prop('checked', true);
+            $('input[type=checkbox][value=' + getActors[index].genre[i] + ']').prop('checked', true);
         }
+
         // Create Dynamic Update/Delete Buttons/Variables
         var updateButton = "<input type='button' name='updateButton' id='updateButton' value='Update Info' />";
         var deleteButton = "<input type='button' name='deleteButton' id='deleteButton' value='Delete Actor' />";
@@ -101,7 +104,6 @@ function getActorInfo() {
             $('#updateButton').remove();
             $('#deleteButton').remove();
             clearFields();
-            getActorInfo();
         });
 
         // Update Actor Info
@@ -126,10 +128,9 @@ function getActorInfo() {
                 actor.genre = genre;
                 actors.splice(index, 1, actor);
 
-            $('#actorsList').append('<li class="' + index + '"><a href="#" class="info" data-actor-id="'+ index + '">' + actor.first + " " + actor.last + '</a></li>');
+            $('#actorsList').append('<li class="' + index + '"><a href="#" class="info" data-act_id="'+ index + '">' + actor.first + " " + actor.last + '</a></li>');
             $('#updateButton').remove();
             $('#deleteButton').remove();
-            getActorInfo();
             clearFields();
         });
     });
