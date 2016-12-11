@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 5 - Objects & Arrays</title>
+        <link type="text/css" rel="stylesheet" href="../style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="lab5.js"></script>
+    </head>
+    <body>
+        <div id="actorForm">
+            <h2>Lab 5 - Actor's List</h2>
+            <form>
+                <!-- Actor Name -->
+                First Name: <input type="text" id="first"/>
+                 Last Name: <input type="text" id="last"/><br /><br />
+                <!-- Actor Birthday -->
+                <label>Day: </label>
+                <select id="day">
+
+                </select>
+                <label> Month: </label>
+                <select id="month">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <label> Year: </label>
+                <select id="year">
+
+                </select><br /><br />
+                <!--Actor Gender -->
+                <label>Gender:</label><br />
+                    <input type="radio" name="gender" id="male" value="male"> Male<br />
+                    <input type="radio" name="gender" id="female" value="female"> Female<br /><br />
+                <!-- Actor Movie Genres -->
+                <label>Genres:</label><br />
+                    <input type="checkbox" name="genre" id="action" value="action"> Action<br />
+                    <input type="checkbox" name="genre" id="comedy" value="comedy"> Comedy<br />
+                    <input type="checkbox" name="genre" id="drama" value="drama"> Drama<br />
+                    <input type="checkbox" name="genre" id="sci-fi" value="sci-fi"> Science Fiction<br />
+            </form><br />
+        </div>
+
+        <!-- Add Update Delete Buttons -->
+        <div id="buttonDiv">
+            <input type="button" name="addButton" id="addButton" value="Add Actor"/>
+        </div><br />
+
+        <!-- List for Actors Added from the Form -->
+        <h5>Actors Added:</h5>
+        <div id="results">
+            <ul id="actorsList">
+
+            </ul>
+        </div>
+    </body>
+</html>
