@@ -156,8 +156,13 @@ $(document).ready(function () {
         $('#year').append('<option value="' + y + '">' + y + '</option>');
     }
 
+    // Add Actor Button On Click Func
     $('#addButton').on('click', function () {
-        addActorInfo();
-        getActorInfo();
+
+        if ( formValidation() )
+        {
+            addActorInfo();
+            getActorInfo();
+        }
     });
 });
