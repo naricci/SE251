@@ -9,6 +9,7 @@
         <script src="calendar.js"></script>
     </head>
     <body>
+
         <!-- Nav Links -->
         <div id="header">
             <a href="../index.html"><b>Home</b></a>
@@ -16,6 +17,7 @@
             <a href="../lab3/lab3.html"><b>Lab 3</b></a>
         </div>
         <br />
+
         <!-- Main DIV -->
         <div class="main">
             <h1>Availability Calendar</h1>
@@ -41,24 +43,16 @@
                 <option value="2018">2018</option>
             </select>
         </div>
-        <!-- Weekday Header for Calendar -->
-        <div id="weekHeader">
-            <div class="dayHeader">Sunday</div>
-            <div class="dayHeader">Monday</div>
-            <div class="dayHeader">Tuesday</div>
-            <div class="dayHeader">Wednesday</div>
-            <div class="dayHeader">Thursday</div>
-            <div class="dayHeader">Friday</div>
-            <div class="dayHeader">Saturday</div>
-        </div>
+
         <!-- Div to Display Calendar -->
-        <div id="results">
+        <div id="calendar">
 
         </div>
+
         <!-- Selection Buttons -->
-        <div style="margin-top:20px; margin-left:400px; height:150px; border: 1px red; width: 500px;">
-            <input type="button" value="All Month Available" style="background-color:green;" id="yes">
-            <input type="button" value="All Month UnAvailable" style="background-color:red;" id="no">
+        <div>
+            <input type="button" class="available" value="All Month Available" style="background-color:green;" id="yes" />
+            <input type="button" class="unavailable" value="All Month UnAvailable" style="background-color:red;" id="no" />
         </div>
     </body>
 </html>

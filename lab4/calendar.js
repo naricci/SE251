@@ -1,48 +1,54 @@
-var daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-function showCalendar(mth, yr) {
-
-
-    var firstDayOfMonth = mth + "/1/" + yr;
-    var d = new Date(firstDayOfMonth);
-    var numberOfDaysInMonth = daysInMonth(d);
-    var firstDayOfWeek = d.getDay();
-
-    var str = "<ul>";
-    str += "<li>Number of days in the month: " + numberOfDaysInMonth + "</li>";
-    str += "<li>First day of the week: " + firstDayOfWeek + " (" + daysOfTheWeek[firstDayOfWeek] + ")</li>";
-
-    str += "</ul>";
-    $("#results").html(str);
-    // this is where you'll generate the grid, for now I will just show first day of week
-    cal = "<table class='calTable'>";
-    cal += "<tr>"
-    // cal += "<td>" + firstDayOfMonth + "</td>";
-    for (i = 1; i < daysInMonth(d); i++) {
-        cal += "<td class='dayBox'>" + d + "</td>";
-    }
-    cal += "<tr>";
-    cal += "</table>";
-    $("#results").html(cal);
-}
-
-function daysInMonth(anyDateInMonth) {
-    return new Date(anyDateInMonth.getYear(),
-        anyDateInMonth.getMonth() + 1,
-        0).getDate();
-}
 $(document).ready(function() {
 
-    var d = new Date();
-    var mth = d.getMonth() + 1;
-    var yr = d.getFullYear();
+    var ends;
+    var weekRow;
 
-    $("#month").val(mth);
-    $("#year").val(yr);
-    showCalendar(mth, yr);
+    //Create table
+    var createGrid = function () {
+        var tbl = "<table style='border:solid 2px; cellspacing=40; border-color:black'>";
+        tbl += "<h2>" + month + " " + year + "</h2>"
+        tbl += "<thead>";
+        tbl += "<tr> <td class ='dayHeader'>Sunday</td> " +
+            "<td class ='dayHeader'>Monday</td> " +
+            "<td class ='dayHeader'>Tuesday</td> " +
+            "<td class ='dayHeader'>Wednesday</td> </td> " +
+            "<td class ='dayHeader'>Thursday</td> " +
+            "<td class ='dayHeader'>Friday</td> " +
+            "<td class ='dayHeader'>Saturday</td>";
+        tbl += "</thead>";
+        var num = 1;
+        tbl += "<tbody>"
 
-    $("#month,#year").click(function(e) {
-        showCalendar($("#month").val(), $("#year").val());
+        for (var row = 0; row < weekRow; row++) {
+            tbl += "<tr>";
 
-    });
+            for (var col = 0; col < 7; col++) {
+
+                if (dayStarts < 1) {
+
+                    tbl += "<td></td>";
+                }
+                else if (dayStarts <= ends) {
+                    var dateStatus = num + "/" + month + "/" + year;
+
+                    if (day == num && year == 2016) {
+                        tbl += "<td id=" + dateStatus + " <div class='today'><p>" + dayStarts + "</p></div></td>";
+                        num++;
+                    }
+                    else {
+                        tbl += "<td id=" + dateStatus + " <div class='day'><p id>" + dayStarts + "</p></div></td>";
+                        num++;
+                    }
+                }
+
+                dayStarts++;
+            }
+            tbl += "</tr>";
+        }
+        tbl += "</tbody>";
+        tbl += "</table>";
+
+        $(tbl).appendTo('#calendar');
+
+    };
 });
