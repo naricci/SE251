@@ -356,5 +356,13 @@ $(document).ready(function() {
         clickColor();
     });
 
+    $('.available').click(function () {
 
+        $('.day, .today').css('background-color', 'rgb(0 , 255 , 0');
+    });
+
+    $('.unavailable').click(function () {
+
+        $('.day, .today').css('background-color', 'rgb(255 , 0 , 0');
+    });
 });
