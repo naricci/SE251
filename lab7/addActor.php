@@ -17,8 +17,8 @@ try {
     $ps->bindParam(':gender', $gender, PDO::PARAM_STR);
     $ps->bindParam(':genre', $genre, PDO::PARAM_STR);
     $ps->execute();
-    echo "form submitted";
+    echo "Form has been submitted.";
 } catch (PDOException $e) {
-    echo "Error connecting to db";
+    echo "Error connecting to database.";
 }
 ?>

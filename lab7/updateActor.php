@@ -22,5 +22,5 @@ try {
 
     $stmt->execute();
 } catch (PDOException $e) {
-    echo "error";
+    echo "Error.";
 }
