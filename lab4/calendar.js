@@ -16,44 +16,31 @@ $(document).ready(function() {
             "<td class ='dayHeader'>Saturday</td>";
         tbl += "</thead>";
         var num = 1;
-        tbl += "<tbody>"
+        tbl += "<tbody>";
 
-        for (var row = 0; row < weekRow; row++) {
+        for (row = 0; row < weekRow; row++)
+        {
             tbl += "<tr>";
 
-            for (var col = 0; col < 7; col++) {
+            for (col = 0; col < 7; col++)
+            {
 
-<<<<<<< HEAD
-    str += "</ul>";
-    $("#results").html(str);
-    // this is where you'll generate the grid, for now I will just show first day of week
-    cal = "<table class='calTable'>";
-    cal += "<tr>"
-
-    for (i = 0; i < 5; i++) {
-        cal += "<tr>";
-            for (x = 0; x < 7; x++) {
-                cal += "<td>";
-            }
-    }
-    cal += "</tr>";
-    cal += "</table>";
-    $("#results").html(cal);
-}
-=======
-                if (dayStarts < 1) {
->>>>>>> week3
+                if (dayStarts < 1)
+                {
 
                     tbl += "<td></td>";
                 }
-                else if (dayStarts <= ends) {
+                else if (dayStarts <= ends)
+                {
                     var dateStatus = num + "/" + month + "/" + year;
 
-                    if (day == num && year == 2016) {
+                    if (day == num && year == 2016)
+                    {
                         tbl += "<td id=" + dateStatus + " <div class='today'><p>" + dayStarts + "</p></div></td>";
                         num++;
                     }
-                    else {
+                    else
+                        {
                         tbl += "<td id=" + dateStatus + " <div class='day'><p id>" + dayStarts + "</p></div></td>";
                         num++;
                     }
