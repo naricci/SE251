@@ -15,4 +15,3 @@ try{
     echo "Error";
 }
 echo json_encode($dbArray, JSON_PRETTY_PRINT);
-?>

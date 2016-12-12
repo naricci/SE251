@@ -22,7 +22,6 @@ function addActor() {
     actor.gender = gender;
     actor.genre = genre;
 
-
     var str = JSON.stringify(actor);
 
     $.ajax({
@@ -33,7 +32,6 @@ function addActor() {
             console.log('success', data);
         }
     });
-
 }
 function getActor(){
     $.getJSON( 'getActor.php', function( data ) {
@@ -46,6 +44,7 @@ function getActor(){
             index++;
 
         });
+
         $(tbl).appendTo( "#actorTable" );
 
         $('.list').on('click', function(){
@@ -74,8 +73,8 @@ function getActor(){
                 }
                 console.log(data[number].genre);
 
-                updateButton = "<input type='button' id='updateActor' value='Update' /> ";
-                deleteButton = "<input type='button' id='deleteActor' value='Delete' /> ";
+                var updateButton = "<input type='button' id='updateActor' value='Update' /> ";
+                var deleteButton = "<input type='button' id='deleteActor' value='Delete' /> ";
 
                 $('#actorsForm').append(updateButton, deleteButton);
 
@@ -131,7 +130,7 @@ function getActor(){
                         url: "updateActor.php",
                         data: {data: str},
                         success: function (data) {
-                            console.log('success', data);
+                            // console.log('success', data);
                         }
 
                     });
@@ -142,9 +141,7 @@ function getActor(){
                     location.reload();
                 });
             }
-
         });
-
     });
 
 
@@ -182,16 +179,13 @@ function validActor(){
         alert('Cannot leave genre field blank');
         result = false;
     }
-
     return result;
-
 }
 
 $(function () {
     getActor();
 
     $('select').material_select();
-
 
     $('#addActor').on('click', function() {
 
@@ -200,9 +194,7 @@ $(function () {
             $("tr").empty();
             location.reload();
         }
-
     });
-
 });
 
 

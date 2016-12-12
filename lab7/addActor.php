@@ -8,7 +8,7 @@ $lastName = $data["lastName"];
 $DOB = $data["DOB"];
 $gender = $data["gender"];
 $genre = serialize($data["genre"]);
-
+echo $firstName;
 try {
     $ps = $db->prepare("INSERT INTO actor (firstName, lastName, DOB, gender, genre) VALUES (:firstName, :lastName, :DOB, :gender, :genre) ");
     $ps->bindParam(':firstName', $firstName, PDO::PARAM_STR);
