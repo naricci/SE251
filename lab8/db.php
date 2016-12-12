@@ -8,6 +8,6 @@ try {
     $db = new PDO($dsn, $username, $password);
 
 } catch (PDOException $e){
-    exit ("<br />Sorry, cant't connect");
+    exit ("<br />Error: Cannot connect to database.");
 }
 ?>
