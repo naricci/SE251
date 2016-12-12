@@ -50,12 +50,14 @@ $(document).ready(function() {
         $(tbl).appendTo('#calendar');
     };
 
-    // Switch Statement for Date
+    // Date Func
     var date = function() {
 
-        if (year == 2016) {
+        if (year == 2016)
+        {
 
-            switch (month) {
+            switch (month)
+            {
 
                 case "0":
                     month = "January";
@@ -133,6 +135,170 @@ $(document).ready(function() {
                     break;
             }
         }
+
+        if (year == 2017)
+        {
+
+            switch (month)
+            {
+
+                case "0":
+                    month = "January";
+                    dayStarts = 1;
+                    ends = 31;
+                    weekRow = 5;
+                    break;
+                case "1":
+                    month = "February";
+                    ends = 28;
+                    dayStarts = -2;
+                    weekRow = 5;
+                    break;
+                case "2":
+                    month = "March";
+                    ends = 31;
+                    dayStarts = -2;
+                    weekRow = 5;
+                    break;
+                case "3":
+                    month = "April";
+                    ends = 30;
+                    prevDays = 27;
+                    dayStarts = -5;
+                    weekRow = 5;
+                    break;
+                case "4":
+                    month = "May";
+                    ends = 31;
+                    dayStarts = 0;
+                    weekRow = 5;
+                    break;
+                case "5":
+                    month = "June";
+                    ends = 30;
+                    dayStarts = -3;
+                    weekRow = 5;
+                    break;
+                case "6":
+                    month = "July";
+                    ends = 31;
+                    dayStarts = -5;
+                    weekRow = 6;
+                    break;
+                case "7":
+                    month = "August";
+                    ends = 31;
+                    dayStarts = -1;
+                    weekRow = 5;
+                    break;
+                case "8":
+                    month = "September";
+                    ends = 30;
+                    dayStarts = -4;
+                    weekRow = 5;
+                    break;
+                case "9":
+                    month = "October";
+                    ends = 31;
+                    dayStarts = 1;
+                    weekRow = 5;
+                    break;
+                case "10":
+                    month = "November";
+                    ends = 30;
+                    dayStarts = -2;
+                    weekRow = 5;
+                    break;
+                case "11":
+                    month = "December";
+                    ends = 31;
+                    dayStarts = -4;
+                    weekRow = 6;
+                    break;
+            }
+        }
+
+        if (year == 2018)
+        {
+
+            switch (month)
+            {
+
+                case "0":
+                    month = "January";
+                    dayStarts = -1;
+                    ends = 31;
+                    weekRow = 5;
+                    break;
+                case "1":
+                    month = "February";
+                    ends = 29;
+                    dayStarts = -4;
+                    weekRow = 5;
+                    break;
+                case "2":
+                    month = "March";
+                    ends = 31;
+                    dayStarts = -4;
+                    weekRow = 5;
+                    break;
+                case "3":
+                    month = "April";
+                    ends = 28;
+                    dayStarts = 1;
+                    weekRow = 4;
+                    break;
+                case "4":
+                    month = "May";
+                    ends = 31;
+                    dayStarts = -1;
+                    weekRow = 5;
+                    break;
+                case "5":
+                    month = "June";
+                    ends = 30;
+                    dayStarts = -4;
+                    weekRow = 5;
+                    break;
+                case "6":
+                    month = "July";
+                    ends = 31;
+                    dayStarts = 1;
+                    weekRow = 5;
+                    break;
+                case "7":
+                    month = "August";
+                    ends = 31;
+                    dayStarts = -2;
+                    weekRow = 5;
+                    break;
+                case "8":
+                    month = "September";
+                    ends = 30;
+                    dayStarts = -5;
+                    weekRow = 6;
+                    break;
+                case "9":
+                    month = "October";
+                    ends = 31;
+                    dayStarts = 0;
+                    weekRow = 5;
+                    break;
+                case "10":
+                    month = "November";
+                    ends = 30;
+                    dayStarts = -3;
+                    weekRow = 5;
+                    break;
+                case "11":
+                    month = "December";
+                    ends = 31;
+                    dayStarts = -5;
+                    weekRow = 6;
+                    break;
+            }
+        }
+    }
 
 
 });
