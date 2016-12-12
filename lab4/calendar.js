@@ -324,4 +324,37 @@ $(document).ready(function() {
             });
         });
     }
+
+    var currentDate = new Date();
+    var year = currentDate.getFullYear().toString();
+    var month = currentDate.getMonth().toString();
+    var day = currentDate.getDate();
+    $("#month").val(month);
+    $("#year").val(year);
+    date();
+    createGrid();
+    clickColor();
+
+    // Select Function
+    $("#year , #month").change(function () {
+
+        year = $("#year option:selected").val();
+        month = $("#month option:selected").val();
+
+        if (month == currentDate.getMonth().toString())
+        {
+            day = currentDate.getDate();
+        }
+        else
+        {
+            day = 0;
+        }
+
+        date();
+        $("table , h2").remove();
+        createGrid();
+        clickColor();
+    });
+
+
 });
