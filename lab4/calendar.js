@@ -300,5 +300,28 @@ $(document).ready(function() {
         }
     }
 
+    // Table Cell Func
+    function clickColor() {
 
+        $('tbody').find('td').hover(function () {
+            var cc = 0;
+            $('.day, .today').click(function () {
+                cc++;
+
+                if (cc == 1)
+                {
+                    $(this).css('background-color', 'rgb(0 , 255 , 0');
+                    $('p').attr("id", "1");
+
+                }
+
+                if (cc == 2)
+                {
+                    $(this).css('background-color', 'rgb(255 , 0 , 0');
+                    $('p').attr("id", "2");
+                    cc = 0;
+                }
+            });
+        });
+    }
 });
