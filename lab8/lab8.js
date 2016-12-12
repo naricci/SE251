@@ -27,9 +27,9 @@ function addActor() {
 
     $.ajax({
         type:"POST",
-        url: "addActor.php"  ,
+        url: "addActor.php",
         data: {data: str},
-        success: function(data){
+        success: function(data) {
             console.log('success', data);
         }
     });
@@ -37,7 +37,7 @@ function addActor() {
 function getActor(){
     $.getJSON( 'getActor.php', function( data ) {
         var items = [];
-        var index=0;
+        var index = 0;
         var tbl = "";
         $.each( data, function( key, val ) {
 
@@ -100,7 +100,6 @@ function getActor(){
                     $('#updateActor').remove();
                     clearValues();
                     location.reload();
-
                 });
 
                 $('#updateActor').on('click', function () {

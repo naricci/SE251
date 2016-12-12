@@ -8,6 +8,7 @@ $lastName = $data["lastName"];
 $DOB = $data["DOB"];
 $gender = $data["gender"];
 $genre = serialize($data["genre"]);
+//echo $firstName;
 
 try {
     $ps = $db->prepare("INSERT INTO actor (firstName, lastName, DOB, gender, genre) VALUES (:firstName, :lastName, :DOB, :gender, :genre) ");
@@ -17,8 +18,8 @@ try {
     $ps->bindParam(':gender', $gender, PDO::PARAM_STR);
     $ps->bindParam(':genre', $genre, PDO::PARAM_STR);
     $ps->execute();
-    echo "form submitted";
+    echo "Your form has been submitted.";
 } catch (PDOException $e) {
-    echo "Error connecting to db";
+    echo "Error connecting to database.";
 }
 ?>

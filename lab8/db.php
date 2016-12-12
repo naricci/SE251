@@ -6,7 +6,6 @@ $db = new PDO($dsn, $username, $password);
 
 try {
     $db = new PDO($dsn, $username, $password);
-
 } catch (PDOException $e){
     exit ("<br />Error: Cannot connect to database.");
 }
